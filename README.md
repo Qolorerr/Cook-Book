@@ -1,2 +1,2 @@
 # Cook-Book
-Project with PyQT5 for Yandex Lyceum
+Simple cook book on Python with PyQT5 for design

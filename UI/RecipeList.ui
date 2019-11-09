@@ -50,12 +50,7 @@ border: none;</string>
    </attribute>
    <column>
     <property name="text">
-     <string>Name</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Open</string>
+     <string>Recipes</string>
     </property>
    </column>
   </widget>

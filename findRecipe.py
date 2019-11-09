@@ -43,11 +43,10 @@ class ListRecipeWindow(QWidget):
         con.close()
         for i in range(len(recipes)):
             self.table.insertRow(i)
-            self.table.setItem(i, 0, QTableWidgetItem(recipes[i][1]))
             button = QPushButton()
             button.setObjectName(str(recipes[i][0]))
-            button.setText('Open')
-            self.table.setCellWidget(i, 1, button)
+            button.setText(recipes[i][1])
+            self.table.setCellWidget(i, 0, button)
             button.clicked.connect(self.open_recipe)
 
     # Open recipe click processing

@@ -9,25 +9,25 @@ Logo creator: Kiprianov Ivan
 
 import sys
 from PyQt5 import uic
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QFontDatabase
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
-import chooseIngr
-import findRecipe
-import addRecipe
+import src.chooseIngr as chooseIngr
+import src.findRecipe as findRecipe
+import src.addRecipe as addRecipe
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('UI/Main.ui', self)
-        f = open("buttonStyle.txt", "r")
+        uic.loadUi('res/UI/Main.ui', self)
+        f = open("res/buttonStyle.txt", "r")
         style = f.read().replace('10', '12')
         f.close()
         self.findB.setStyleSheet(style)
         self.addB.setStyleSheet(style)
         self.chooseB.setStyleSheet(style)
-        pixmap = QPixmap("logo.png")
+        pixmap = QPixmap("res/logo.png")
         pixmap = pixmap.scaled(151, 121)
         self.image.setPixmap(pixmap)
         self.findB.clicked.connect(self.find_recipe)
@@ -51,6 +51,8 @@ class MainWindow(QMainWindow):
 
 
 app = QApplication(sys.argv)
+QFontDatabase.addApplicationFont('res/MainFont.ttf')
+QFontDatabase.addApplicationFont('res/TextFont.ttf')
 ex = MainWindow()
 ex.show()
 sys.exit(app.exec_())
